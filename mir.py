@@ -12,12 +12,17 @@ from glob import glob
 """
     Chord Information Extractor
     *A script to extract chord information from mp3 files*
+     Sources:
+        
+        https://stackoverflow.com/
+        https://www.kaggle.com/code/robikscube/working-with-audio-in-python
+    
 
 """
 
-# sns.set_theme(style="white", palette=None)
-# color_pal = plt.rcParams["axes.prop_cycle"].by_key()["color"]
-# color_cycle = cycle(plt.rcParams["axes.prop_cycle"].by_key()["color"])
+sns.set_theme(style="white", palette=None)
+color_pal = plt.rcParams["axes.prop_cycle"].by_key()["color"]
+color_cycle = cycle(plt.rcParams["axes.prop_cycle"].by_key()["color"])
 
 #load mp3 file
 song = '/Users/becksonstein/Documents/BU/MIR/TestSong.mp3'

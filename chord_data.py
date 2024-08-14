@@ -3,21 +3,31 @@ import numpy as np
 
 from midiutil import MIDIFile
 from music21 import converter
+"""
+    Convert MP3 to MIDI 
+    *A script to extract chord information from mp3 files*
+    
+    Sources:
+    https://librosa.org/doc/0.10.1/tutorial.html
+    https://librosa.org/doc/0.10.1/generated/librosa.effects.hpss.html
 
-# Load the MP3 file
+"""
+
+# Load the MP3 file using librosa
 y, sr = librosa.load('/Users/becksonstein/Documents/BU/MIR/TestSong.mp3')
 print("Checkpnt 1")
-# using librosa's harmonic-percussive source separation function,extract melody info
+# using harmonic-percussive source separation function,extract melody info,
+     
 harmonic, percussive = librosa.effects.hpss(y)
 print("Checkpnt 2")
 # Extract pitches and magnitudes 
 pitches, magnitudes = librosa.core.piptrack(y=harmonic, sr=sr)
 print("Checkpnt 3")
 
-# Create a MIDI file
-midi = MIDIFile(1)  # One track
+# Create MIDI file
+midi = MIDIFile(1)  
 print("Checkpnt 4")
-midi.addTempo(0, 0, 120)  # Set tempo
+midi.addTempo(0, 0, 120)   
 print("Checkpnt 5")
 
 # Add notes to MIDI based on extracted pitches
